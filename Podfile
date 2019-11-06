@@ -6,6 +6,8 @@ use_frameworks!
 
 def shared_pods
     pod 'SnapKit', '~> 5.0.1'
+    pod 'RxSwift', '~> 5.0.1'
+    pod 'RxCocoa', '~> 5.0.1'
 end
 
 target 'MallAR' do
