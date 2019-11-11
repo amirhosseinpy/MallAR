@@ -9,24 +9,20 @@
 import Foundation
 
 struct ServerError: Error {
-    var code: Int
-    var customError: String
+    var code: Int?
+    var message: String?
+    var type: ErrorType?
     
-    init(code: Int) {
-        self.code = code
-        customError = ""
-    }
-    
-    init(code: Int, customError: String) {
-        self.code = code
-        self.customError = customError
+    init(customError: String = "", type: ErrorType? = nil) {
+        self.message = customError
+        self.type = type
     }
     
     func getErrMsg() -> String {
         if code == -1 {
             return "error.network".localized
         } else {
-            return customError
+            return self.message ?? ""
         }
     }
 }
@@ -37,21 +33,6 @@ enum ErrorType: LocalizedError {
     case validationError
     case serverError
     case defaultError
-    
-    var errorDescription: String? {
-        switch self {
-        case .parseUrlFail:
-            return "Cannot initial URL object."
-        case .notFound:
-            return "Not Found"
-        case .validationError:
-            return "Validation Errors"
-        case .serverError:
-            return "Internal Server Error"
-        case .defaultError:
-            return "Something went wrong."
-        }
-    }
 }
 
 

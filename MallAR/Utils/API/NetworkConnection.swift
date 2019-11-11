@@ -13,48 +13,68 @@ class NetworkConnection {
     
     static var shared = NetworkConnection()
     
-    func send<T: Codable>(apiRequest: APIRouter, printDebugResp: Bool = true) -> Observable<T> {
+    func send<T: Codable>(apiRequest: APIRouter, printDebugResp: Bool = true, key: String? = nil) -> Observable<T> {
         
         return Observable<T>
             .create { observer in
                 do {
                     let task = try URLSession.shared.dataTask(with: apiRequest.request()) { (data, response, error) in
-                        
-                        if let err = error {
-                            let errCode = (err as NSError).code
-                            observer.onError(ServerError(code: errCode))
-                            observer.onCompleted()
-                            return
-                        }
-                        
-                        let urlResp = (response as? HTTPURLResponse)
-                        //                let respCode = urlResp?.statusCode ?? -1
-                        
-                        //                if respCode == 403 || respCode == 401 {
-                        //                    FPBaseInfo.shared.clearAll()
-                        //                    observer.onError(FPServerError(code: respCode))
-                        //                    observer.onCompleted()
-                        //                    return
-                        //                }
-                        
                         do {
+                            let json = try JSONSerialization.jsonObject(with: data ?? Data(), options: .fragmentsAllowed)
+                            let validationError = ServerError(type: ErrorType.validationError)
+                            observer.onError(validationError)
                             
-                            self.printDebugInfo(resp: urlResp, data: data, debug: printDebugResp)
+                            guard JSONSerialization.isValidJSONObject(json) else {
+                                let error = ServerError(type: ErrorType.validationError)
+                                observer.onError(error)
+                                return
+                            }
                             
-                            //                    if let tokenHeader = urlResp?.allHeaderFields["Authorization"] as? String {
-                            //
-                            //                        var user = FPBaseInfo.shared.currentUser.value
-                            //                        user.token = tokenHeader
-                            //                        FPBaseInfo.shared.currentUser.accept(user)
-                            //                        FPBaseInfo.shared.saveAll()
-                            //                    }
+                            if let err = error {
+                                observer.onError(ServerError(customError: err.localizedDescription))
+                                //                            observer.onCompleted()
+                                return
+                            }
                             
-                            let model: T = try JSONDecoder().decode(T.self, from: data ?? Data())
-                            observer.onNext(model)
+                            let urlResp = (response as? HTTPURLResponse)
+                            //                let respCode = urlResp?.statusCode ?? -1
+                            
+                            //                if respCode == 403 || respCode == 401 {
+                            //                    FPBaseInfo.shared.clearAll()
+                            //                    observer.onError(FPServerError(code: respCode))
+                            //                    observer.onCompleted()
+                            //                    return
+                            //                }
+                            
+                            do {
+                                
+                                self.printDebugInfo(resp: urlResp, data: data, debug: printDebugResp)
+                                
+                                //                    if let tokenHeader = urlResp?.allHeaderFields["Authorization"] as? String {
+                                //
+                                //                        var user = FPBaseInfo.shared.currentUser.value
+                                //                        user.token = tokenHeader
+                                //                        FPBaseInfo.shared.currentUser.accept(user)
+                                //                        FPBaseInfo.shared.saveAll()
+                                //                    }
+                                if let key = key, let keyedJson = (json as? [String: Any])?[key] {
+                                    let keyedData = try JSONSerialization.data(withJSONObject: keyedJson, options: .fragmentsAllowed)
+                                    let model: T = try JSONDecoder().decode(T.self, from: keyedData)
+                                    observer.onNext(model)
+                                } else {
+                                    let model: T = try JSONDecoder().decode(T.self, from: data ?? Data())
+                                    observer.onNext(model)
+                                }
+                                
+                                
+                            } catch let error {
+                                observer.onError(error)
+                            }
+                            observer.onCompleted()
+                            
                         } catch let error {
                             observer.onError(error)
                         }
-                        observer.onCompleted()
                     }
                     task.resume()
                     
@@ -75,8 +95,8 @@ class NetworkConnection {
                 do {
                     let task = try URLSession.shared.dataTask(with: apiRequest.request()) { (data, response, error) in
                         
-                        if let _ = error {
-                            observer.onError(ServerError(code: -1))
+                        if let err = error {
+                            observer.onError(ServerError(customError: err.localizedDescription))
                         } else {
                             self.printDebugInfo(resp: (response as? HTTPURLResponse),data: data, debug: printDebugResp)
                             

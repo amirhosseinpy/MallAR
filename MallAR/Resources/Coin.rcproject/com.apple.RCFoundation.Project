@@ -1,0 +1,186 @@
+{
+  "__content" : [
+    {
+      "scenes" : [
+        {
+          "__content" : [
+            {
+              "arAnchorSpecification" : {
+                "alignment" : "horizontal",
+                "name" : "surface"
+              },
+              "behaviors" : [
+
+              ],
+              "gravity" : [
+                0,
+                -9.8000001907348633,
+                0
+              ],
+              "hasGroundPlane" : true,
+              "identifier" : "50D4C3CD-798F-4EFB-AE93-A04D907D40B6",
+              "material" : "concrete",
+              "overrides" : {
+                "children" : {
+                  "0C3FA3D9-D40E-4FC9-875B-93DDD5E58A16" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "item",
+                          {
+                            "typeName" : "String",
+                            "value" : "Silver Coin"
+                          }
+                        ],
+                        [
+                          "material",
+                          {
+                            "typeName" : "String",
+                            "value" : "gold"
+                          }
+                        ],
+                        [
+                          "style",
+                          {
+                            "typeName" : "String",
+                            "value" : "Iconic"
+                          }
+                        ]
+                      ],
+                      "children" : {
+                        "iconicItem" : {
+                          "overrides" : {
+                            "factory" : null,
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "C9BB5676-2EC8-460F-99E8-DB726347D8BC"
+                                }
+                              ]
+                            ]
+                          }
+                        },
+                        "item" : {
+                          "overrides" : {
+                            "factory" : null,
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "1EC47247-1AC8-498D-91E9-7818B6199887"
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      },
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.SilverCoin.b33598e1-e3b9-4cce-a4d0-c60ff9e15593",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "93315AB0-7336-45BF-B5D3-8B88F08B6C4A"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "gold_coin"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        1,
+                        -1.5099629990800167e-07,
+                        8.7421092587192106e-08,
+                        0,
+                        -8.7421028638345888e-08,
+                        5.9604616353681195e-08,
+                        0.99999964237213135,
+                        0,
+                        -1.509962288537281e-07,
+                        -0.99999964237213135,
+                        5.9604616353681195e-08,
+                        0,
+                        0,
+                        0.010442947968840599,
+                        0,
+                        1
+                      ]
+                    }
+                  },
+                  "8ED6488C-8AAC-4022-AD7B-E4B3FBE59678" : null,
+                  "AC265964-136E-4C11-ADCA-C8A52A1DA27B" : null,
+                  "Cube" : null,
+                  "Plate" : null
+                },
+                "factory" : null
+              },
+              "title" : "Scene",
+              "viewTransform" : {
+                "cameraTransform" : [
+                  0.98295331001281738,
+                  -3.7252902984619141e-09,
+                  0.18385511636734009,
+                  0,
+                  0.079150401055812836,
+                  0.90258842706680298,
+                  -0.42316576838493347,
+                  0,
+                  -0.16594547033309937,
+                  0.43050429224967957,
+                  0.88720238208770752,
+                  0,
+                  0.0088875982910394669,
+                  0.07028546929359436,
+                  0.12953463196754456,
+                  1
+                ],
+                "sceneTransform" : [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.99999994039535522,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.99999994039535522,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          ],
+          "__version" : 4
+        }
+      ],
+      "tags" : {
+        "__content" : [
+          {
+            "tagsStore" : {
+
+            }
+          }
+        ],
+        "__version" : 1
+      }
+    }
+  ],
+  "__version" : 1
+}
