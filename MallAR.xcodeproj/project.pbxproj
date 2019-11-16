@@ -14,6 +14,7 @@
 		665403D22372E56000820C62 /* Base.strings in Resources */ = {isa = PBXBuildFile; fileRef = 665403D12372E56000820C62 /* Base.strings */; };
 		665403D52372E61200820C62 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665403D42372E61200820C62 /* StringExtension.swift */; };
 		665403D72372E64800820C62 /* LangUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665403D62372E64800820C62 /* LangUtil.swift */; };
+		6666B1B8237D6E4600611DDC /* Coin.rcproject in Resources */ = {isa = PBXBuildFile; fileRef = 66B208BF23759BF40056B76B /* Coin.rcproject */; };
 		66ABD4B523473F580024CBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ABD4B423473F580024CBEB /* AppDelegate.swift */; };
 		66ABD4B723473F580024CBEB /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 66ABD4B623473F580024CBEB /* art.scnassets */; };
 		66ABD4B923473F580024CBEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ABD4B823473F580024CBEB /* ViewController.swift */; };
@@ -146,7 +147,6 @@
 		665403CE2372E47B00820C62 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				66B208BF23759BF40056B76B /* Coin.rcproject */,
 				66ABD4B623473F580024CBEB /* art.scnassets */,
 				66ABD4BD23473F5A0024CBEB /* Assets.xcassets */,
 				66ABD4C223473F5A0024CBEB /* Info.plist */,
@@ -189,6 +189,7 @@
 		66ABD4B323473F580024CBEB /* MallAR */ = {
 			isa = PBXGroup;
 			children = (
+				66B208BF23759BF40056B76B /* Coin.rcproject */,
 				66FD821A2375D662000502F3 /* Exprience */,
 				665403CE2372E47B00820C62 /* Resources */,
 				665403C62372E2EB00820C62 /* Utils */,
@@ -333,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6666B1B8237D6E4600611DDC /* Coin.rcproject in Resources */,
 				66ABD4B723473F580024CBEB /* art.scnassets in Resources */,
 				66ABD4C123473F5A0024CBEB /* LaunchScreen.storyboard in Resources */,
 				66ABD4BE23473F5A0024CBEB /* Assets.xcassets in Resources */,

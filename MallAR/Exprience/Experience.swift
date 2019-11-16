@@ -14,7 +14,7 @@ enum Experience {
     private static var streams = [Combine.AnyCancellable]()
     
     public static func loadScene() throws -> Experience.Scene {
-        guard let realityFileURL = Foundation.Bundle(for: Experience.Scene.self).url(forResource: "Coin", withExtension: "reality") else {
+        guard let realityFileURL = Foundation.Bundle(for: Experience.Scene.self).url(forResource: "Resources/Coin", withExtension: "reality") else {
             throw Experience.LoadRealityFileError.fileNotFound("Coin.reality")
         }
 
@@ -61,4 +61,15 @@ enum Experience {
     }
 }
 
+extension Experience {
+    public struct AnchorPlacement {
+
+        /// The identifier of the anchor the game is placed on. Used to re-localized the game between levels.
+        var arAnchorIdentifier: UUID?
+
+        /// The transform of the anchor the game is placed on . Used to re-localize the game between levels.
+        var placementTransform: Transform?
+
+    }
+}
 

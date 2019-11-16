@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     private var arView: ARView!
     private var coachingOverlay: ARCoachingOverlayView!
     private var sceneAnchor: Experience.Scene!
+    private var anchorPlacement: Experience.AnchorPlacement?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +97,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
 //        transition(to: .menu)
     }
+    
+    func addAnchorToARView() {
+        guard let scene = self.sceneAnchor else { return }
+        UIApplication.shared.isIdleTimerDisabled = true
+        self.arView.scene.addAnchor(scene)
+    }
+    
 }
 
 extension ViewController: ARCoachingOverlayViewDelegate {
@@ -143,8 +151,8 @@ extension ViewController: ARSessionDelegate {
         let gameAnchor = ARAnchor(name: "Game Anchor", transform: normalize(planeAnchor.transform))
         arView.session.add(anchor: gameAnchor)
 
-//        gameController.anchorPlacement = Experience.AnchorPlacement(arAnchorIdentifier: gameAnchor.identifier,
-//                                                                    placementTransform: Transform(matrix: planeAnchor.transform))
+        self.anchorPlacement = Experience.AnchorPlacement(arAnchorIdentifier: gameAnchor.identifier,
+                                                                    placementTransform: Transform(matrix: planeAnchor.transform))
 
         // Remove the coaching overlay view
         self.coachingOverlay.delegate = nil
@@ -156,7 +164,8 @@ extension ViewController: ARSessionDelegate {
 
         // Reset the session to stop searching for horizontal planes after we found the anchor for the game
         arView.session.run(ARWorldTrackingConfiguration())
-
+        
+        self.addAnchorToARView()
 //        self.gameController.playerReadyToBowlFrame()
     }
 
