@@ -15,13 +15,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     private var arView: ARView!
     private var coachingOverlay: ARCoachingOverlayView!
-    private var sceneAnchor: Experience.Scene!
-    private var anchorPlacement: Experience.AnchorPlacement?
+//    private var sceneAnchor: Experience.Scene!
+//    private var anchorPlacement: Experience.AnchorPlacement?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupView()
+        self.addConinsToView()
 //        self.configureARView()
 //        self.addCoachingView()
 //        self.presentCoachingOverlay()
@@ -37,7 +38,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func addConinsToView() {
+        Exprience.loadAluminumCoinAsync(completion: { [weak self] result in
+            switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let aluminumCoin):
+                    self?.arView.scene.anchors.append(aluminumCoin)
+            }
+        })
         
+        Exprience.loadGoldenCoinAsync(completion: { [weak self] result in
+            switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let goldenCoin):
+                    self?.arView.scene.anchors.append(goldenCoin)
+            }
+        })
     }
     
 //    func configureARView() {

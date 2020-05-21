@@ -14,7 +14,6 @@
 		665403D22372E56000820C62 /* Base.strings in Resources */ = {isa = PBXBuildFile; fileRef = 665403D12372E56000820C62 /* Base.strings */; };
 		665403D52372E61200820C62 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665403D42372E61200820C62 /* StringExtension.swift */; };
 		665403D72372E64800820C62 /* LangUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665403D62372E64800820C62 /* LangUtil.swift */; };
-		6666B1B8237D6E4600611DDC /* Coin.rcproject in Resources */ = {isa = PBXBuildFile; fileRef = 66B208BF23759BF40056B76B /* Coin.rcproject */; };
 		66ABD4B523473F580024CBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ABD4B423473F580024CBEB /* AppDelegate.swift */; };
 		66ABD4B723473F580024CBEB /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 66ABD4B623473F580024CBEB /* art.scnassets */; };
 		66ABD4B923473F580024CBEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ABD4B823473F580024CBEB /* ViewController.swift */; };
@@ -24,7 +23,7 @@
 		66ABD4CC23473F5A0024CBEB /* MallARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ABD4CB23473F5A0024CBEB /* MallARTests.swift */; };
 		66ABD4D723473F5A0024CBEB /* MallARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ABD4D623473F5A0024CBEB /* MallARUITests.swift */; };
 		66B208BE237420500056B76B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B208BD237420500056B76B /* Default-568h@2x.png */; };
-		66FD821C2375D67B000502F3 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FD821B2375D67B000502F3 /* Experience.swift */; };
+		66D304F92412D3A30062C919 /* Exprience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 66D304F82412D3A30062C919 /* Exprience.rcproject */; };
 		E45DA6F06BE35D1DCB9B956F /* Pods_MallAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 552E339291006B9260F5A9AA /* Pods_MallAR.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,8 +70,7 @@
 		66ABD4D623473F5A0024CBEB /* MallARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MallARUITests.swift; sourceTree = "<group>"; };
 		66ABD4D823473F5A0024CBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66B208BD237420500056B76B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		66B208BF23759BF40056B76B /* Coin.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Coin.rcproject; sourceTree = "<group>"; };
-		66FD821B2375D67B000502F3 /* Experience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experience.swift; sourceTree = "<group>"; };
+		66D304F82412D3A30062C919 /* Exprience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Exprience.rcproject; sourceTree = "<group>"; };
 		A2BED2DFB5FC9820B0ADF9D1 /* Pods-MallARTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MallARTests.debug.xcconfig"; path = "Target Support Files/Pods-MallARTests/Pods-MallARTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF576C50EEFFF9EC0C4C5B86 /* Pods-MallAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MallAR.debug.xcconfig"; path = "Target Support Files/Pods-MallAR/Pods-MallAR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +145,7 @@
 		665403CE2372E47B00820C62 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66D304F82412D3A30062C919 /* Exprience.rcproject */,
 				66ABD4B623473F580024CBEB /* art.scnassets */,
 				66ABD4BD23473F5A0024CBEB /* Assets.xcassets */,
 				66ABD4C223473F5A0024CBEB /* Info.plist */,
@@ -189,8 +188,6 @@
 		66ABD4B323473F580024CBEB /* MallAR */ = {
 			isa = PBXGroup;
 			children = (
-				66B208BF23759BF40056B76B /* Coin.rcproject */,
-				66FD821A2375D662000502F3 /* Exprience */,
 				665403CE2372E47B00820C62 /* Resources */,
 				665403C62372E2EB00820C62 /* Utils */,
 				66ABD4B423473F580024CBEB /* AppDelegate.swift */,
@@ -217,14 +214,6 @@
 				66ABD4D823473F5A0024CBEB /* Info.plist */,
 			);
 			path = MallARUITests;
-			sourceTree = "<group>";
-		};
-		66FD821A2375D662000502F3 /* Exprience */ = {
-			isa = PBXGroup;
-			children = (
-				66FD821B2375D67B000502F3 /* Experience.swift */,
-			);
-			path = Exprience;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,7 +323,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6666B1B8237D6E4600611DDC /* Coin.rcproject in Resources */,
 				66ABD4B723473F580024CBEB /* art.scnassets in Resources */,
 				66ABD4C123473F5A0024CBEB /* LaunchScreen.storyboard in Resources */,
 				66ABD4BE23473F5A0024CBEB /* Assets.xcassets in Resources */,
@@ -429,12 +417,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D304F92412D3A30062C919 /* Exprience.rcproject in Sources */,
 				665403CD2372E43400820C62 /* ServerError.swift in Sources */,
 				66ABD4B923473F580024CBEB /* ViewController.swift in Sources */,
 				665403D52372E61200820C62 /* StringExtension.swift in Sources */,
 				665403CB2372E39B00820C62 /* APIRouter.swift in Sources */,
 				665403D72372E64800820C62 /* LangUtil.swift in Sources */,
-				66FD821C2375D67B000502F3 /* Experience.swift in Sources */,
 				66ABD4B523473F580024CBEB /* AppDelegate.swift in Sources */,
 				665403C92372E33E00820C62 /* NetworkConnection.swift in Sources */,
 			);
