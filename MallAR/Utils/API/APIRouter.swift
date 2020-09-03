@@ -1,100 +1,74 @@
 //
-//  APIRouter.swift
-//  MallAR
+//  FPAPIRouter.swift
+//  PUT
 //
-//  Created by amirhosseinpy on 8/15/1398 AP.
-//  Copyright © 1398 Farazpardazan. All rights reserved.
+//  Created by amirhosseinpy on 1/26/1399 AP.
+//  Copyright © 1399 Farazpardazan Inc. All rights reserved.
 //
 
 import Foundation
 
-enum APIRouter {
-    case getContacts
-    case getContact(id: Int)
-    case createContact(body: [String: Any])
-    case updateContact(id: Int, body: [String: Any])
+public protocol BasicType: Codable, Hashable, RawRepresentable, CustomStringConvertible, CustomDebugStringConvertible {}
+
+public protocol APIRouter {
+    static var method: HTTPMethod { get }
+    static var path: String { get }
+    static var requestType: RequestType { get }
+    static var retriable: Bool { get }
     
-    private static let baseURLString = "ar.farazpardazan.com"
+    var requestBody: Encodable? { get }
     
-    private enum HTTPMethod {
-        case get
-        case post
-        case put
-        case delete
-        
-        var value: String {
-            switch self {
-            case .get: return "GET"
-            case .post: return "POST"
-            case .put: return "PUT"
-            case .delete: return "DELETE"
-            }
-        }
+    associatedtype ResponseType: Codable
+}
+
+extension APIRouter {
+    public static var method: HTTPMethod {
+        return .post
     }
     
-    private var method: HTTPMethod {
-        switch self {
-        case .getContacts: return .get
-        case .getContact: return .get
-        case .createContact: return .post
-        case .updateContact: return .put
-        }
-    }
-    
-    private var path: String {
-        switch self {
-        case .getContacts:
-            return "/contacts.json"
-        case .getContact(let id):
-            return "/contacts/\(id).json"
-        case .createContact:
-            return "/contacts.json"
-        case .updateContact(let id, _):
-            return "/contacts/\(id).json"
-        }
-    }
-    
-    var parameters: Parameters? {
-        switch self {
+    public static var requestType: RequestType {
+        switch method {
+        case .post:
+            return .jsonBody
         default:
-            return nil
+            return .httpHeader
         }
     }
     
-    func request() throws -> URLRequest {
-        let encodedPath = path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let urlString = "\(APIRouter.baseURLString)\(encodedPath)"
-        
-        guard let url = URL(string: urlString) else {
-            throw ErrorType.parseUrlFail
-        }
-        
-        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 10)
-        request.httpMethod = method.value
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-//        if let token = FPUserManager.token {
-//            headers["Authorization"] = "\(token)"
-//        }
-        
-//        request.allHTTPHeaderFields = headers
-        
-        if let parameters = parameters {
-            if method == .post {
-                do {
-                    let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-                    
-                    request.httpBody = jsonData
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-        
-        return request
+    public static var retriable: Bool {
+        return true
     }
 }
 
+extension Encodable {
+    func toJSON() -> Data? { try? JSONEncoder().encode(self) }
+}
 
-public typealias Parameters = [String: Any]
+public struct HTTPMethod: BasicType {
+    public let rawValue: String
+    public var description: String { return rawValue }
+    public var debugDescription: String {
+        return "HTTP Method: \(rawValue)"
+    }
+    
+    public init(rawValue: String) {
+        self.rawValue = rawValue
+    }
 
+    init(_ description: String) {
+        self.rawValue = description.uppercased()
+    }
+    
+    public static let get = HTTPMethod(rawValue: "GET")
+    public static let post = HTTPMethod(rawValue: "POST")
+    public static let delete = HTTPMethod(rawValue: "DELETE")
+    public static let head = HTTPMethod(rawValue: "HEAD")
+    public static let patch = HTTPMethod(rawValue: "PATCH")
+}
+
+public enum RequestType {
+    case httpHeader
+    case jsonBody
+    case multipartFromData
+    case urlQuery
+}
