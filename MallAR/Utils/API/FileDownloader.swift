@@ -9,10 +9,12 @@
 import Foundation
 
 class FileDownloader {
+    
     func loadFileAsync(urlString: String?, fileName: String?, completion: @escaping (URL?) -> Void) {
         guard let urlString = urlString, let url = URL(string: urlString) else { return }
         // create your document folder url
-        guard let documentsUrl = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else { return }
+        guard let documentsUrl = try? FileManager.default.url(
+            for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else { return }
         
         // your destination file url
         let destination = documentsUrl.appendingPathComponent(fileName ?? url.lastPathComponent)

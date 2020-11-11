@@ -31,6 +31,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         setupBindings()
         
         viewModel.getEntities()
+        addCoinsToView()
     }
     
     func setupView() {
@@ -42,7 +43,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func setupBindings() {
-        viewModel.entitiesDestinationPath.subscribeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (downloadFilePath) in
+        viewModel.entitiesDestinationPath.subscribeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (downloadFilePath) in
             self?.loadAnchors(entityPath: downloadFilePath)
         }).disposed(by: bag)
     }
@@ -69,7 +71,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return item
     }
     
-    func addConinsToView() {
+    func addCoinsToView() {
         Exprience.loadAluminumCoinAsync(completion: { [weak self] result in
             switch result {
                 case .failure(let error):
