@@ -14,6 +14,14 @@
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -82,7 +90,7 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 }
               ],
               "gravity" : [
@@ -90,7 +98,6 @@
                 -9.8000001907348633,
                 0
               ],
-              "hasGroundPlane" : true,
               "identifier" : "5716BC20-E5F9-4723-8FBA-66306F14696A",
               "material" : "concrete",
               "overrides" : {
@@ -161,6 +168,27 @@
                             "typeName" : "UUID",
                             "value" : "AB334DC3-17AE-4335-9C13-4DC19A5F0D40"
                           }
+                        ],
+                        [
+                          "isAccessibilityEnabled",
+                          {
+                            "typeName" : "Bool",
+                            "value" : false
+                          }
+                        ],
+                        [
+                          "rigidBody-enabled",
+                          {
+                            "typeName" : "Bool",
+                            "value" : false
+                          }
+                        ],
+                        [
+                          "rigidBody-motionType",
+                          {
+                            "typeName" : "REMotionType",
+                            "value" : "static"
+                          }
                         ]
                       ]
                     },
@@ -187,26 +215,36 @@
                   },
                   "Shape" : null
                 },
-                "factory" : null
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
               },
+              "physicsMode" : "grid",
               "title" : "AluminumCoin",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.88292890787124634,
-                  1.4901161193847656e-08,
-                  0.4695066511631012,
+                  0.88292884826660156,
+                  -5.2154060625753118e-08,
+                  0.46950668096542358,
                   0,
-                  0.1679014265537262,
-                  0.93387007713317871,
-                  -0.31574618816375732,
+                  0.23520983755588531,
+                  0.86546331644058228,
+                  -0.44232285022735596,
                   0,
-                  -0.43845826387405396,
-                  0.35761231184005737,
-                  0.82454091310501099,
+                  -0.4063408374786377,
+                  0.50097215175628662,
+                  0.76414257287979126,
                   0,
-                  -0.31842848658561707,
-                  0.32260572910308838,
-                  0.59930902719497681,
+                  -0.15624266862869263,
+                  0.25922167301177979,
+                  0.34262076020240784,
                   1
                 ],
                 "sceneTransform" : [
@@ -230,7 +268,7 @@
               }
             }
           ],
-          "__version" : 4
+          "__version" : 5
         },
         {
           "__content" : [
@@ -244,6 +282,14 @@
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -312,7 +358,7 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 }
               ],
               "gravity" : [
@@ -320,7 +366,6 @@
                 -9.8000001907348633,
                 0
               ],
-              "hasGroundPlane" : true,
               "identifier" : "2D73DC88-A9E4-45B7-BBBD-5B277FF1EAD5",
               "material" : "concrete",
               "overrides" : {
@@ -417,8 +462,18 @@
                   },
                   "Shape" : null
                 },
-                "factory" : null
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
               },
+              "physicsMode" : "grid",
               "title" : "GoldenCoin",
               "viewTransform" : {
                 "cameraTransform" : [
@@ -460,7 +515,7 @@
               }
             }
           ],
-          "__version" : 4
+          "__version" : 5
         }
       ],
       "tags" : {
