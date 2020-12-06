@@ -63,7 +63,7 @@ class PageViewController: UIViewController {
     func setupForthPage() {
         self.view.backgroundColor = UIColor(netHex: 0x435389)
         self.mainImage.image = UIImage(named: "map")
-        self.descriptionLabel.text = ""
+        self.descriptionLabel.text = "از نقشه های این مال میتوانید برای سهولت در پیدا کردن مکان مشخص استفاده کنید"
         
         enterButton.layer.cornerRadius = 24
         enterButton.isHidden = false

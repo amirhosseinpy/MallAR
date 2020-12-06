@@ -11,6 +11,7 @@ import RxSwift
 
 struct MainViewModel {
     let entitiesDestinationPath = PublishSubject<URL>()
+    let itemsList = PublishSubject<[ItemsModel]>()
     let error = PublishSubject<Error>()
     let isLoading = PublishSubject<Bool>()
     let bag = DisposeBag()
@@ -44,5 +45,12 @@ struct MainViewModel {
                 self.entitiesDestinationPath.onNext(destination)
             }
         }
+    }
+    
+    func getItems() {
+        let aluminumCoin = ItemsModel(name: "Aluminum Coin", imageName: "img_aluminum")
+        let goldCoin = ItemsModel(name: "Gold Coin", imageName: "img_gold")
+        
+        itemsList.onNext([aluminumCoin, goldCoin])
     }
 }

@@ -20,3 +20,8 @@ struct EntityModel: Codable {
     let name: String?
     let url: String?
 }
+
+struct ItemsModel: Codable {
+    let name: String?
+    let imageName: String?
+}

@@ -16,9 +16,44 @@
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="به دنبال اشیا زیر بگردید..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjR-I6-nEU">
+                                <rect key="frame" x="16" y="436" width="382" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G8R-dL-p34">
+                                <rect key="frame" x="0.0" y="642" width="414" height="220"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="ssu-zB-yul"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WrE-TP-Dob">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JjR-I6-nEU" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="0MN-9h-a3b"/>
+                            <constraint firstItem="G8R-dL-p34" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="MmC-Yx-1Pw"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="G8R-dL-p34" secondAttribute="bottom" id="RKA-xM-hLA"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="G8R-dL-p34" secondAttribute="trailing" id="f0B-E8-Un5"/>
+                            <constraint firstItem="JjR-I6-nEU" firstAttribute="centerY" secondItem="U0K-SW-4ec" secondAttribute="centerY" id="rNC-hx-DxJ"/>
+                            <constraint firstItem="JjR-I6-nEU" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="sKH-AS-pQw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="G8R-dL-p34" id="4pi-wy-E3N"/>
+                        <outlet property="hintLabel" destination="JjR-I6-nEU" id="IKp-mz-kSm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

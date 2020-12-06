@@ -21,7 +21,7 @@ class OnBoardingViewController: UIViewController {
         super.viewDidLoad()
         
         setupPageViewController()
-        pageControl.numberOfPages = 3
+        pageControl.numberOfPages = 4
         // Do any additional setup after loading the view.
     }
     
